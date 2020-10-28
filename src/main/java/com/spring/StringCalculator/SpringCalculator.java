@@ -6,7 +6,6 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-
 /**
  * @author Shivani Thakur
  **/
@@ -29,40 +28,29 @@ public class SpringCalculator {
 
 	}
 
-	
-
 	private static List<Integer> removeStringDelimiterAndExtractNumbers(String string) {
-		
+
 		List<Integer> result = new LinkedList<Integer>();
-        if (string != null && !string.isEmpty()) {
-        	Matcher matcher = Pattern.compile("-?\\d+").matcher(string);
-    		
-            while (matcher.find()) {
-                int number = Integer.parseInt(matcher.group());
-                result.add(number);
-            }
-        }        
+		if (string != null && !string.isEmpty()) {
+			Matcher matcher = Pattern.compile("-?\\d+").matcher(string);
+
+			while (matcher.find()) {
+				int number = Integer.parseInt(matcher.group());
+				result.add(number);
+			}
+		}
 		return result;
 	}
 
 	private static int sumOfNumber(List<Integer> numbersArray) {
 		int sum = 0;
-		
-		List<Integer> negativeNumbers = new ArrayList<Integer>();
 
-		for (Integer numberInt : numbersArray) {			
-			if (numberInt < 0) {
-				negativeNumbers.add(numberInt);
-			} else if (numberInt <= 1000) {
-				sum += numberInt;
-			}
-			
+		for (Integer numberInt : numbersArray) {
+
+			sum += numberInt;
+
 		}
-		
-		if (negativeNumbers.size() > 0) {
-			throw new RuntimeException("Negatives not allowed: " + negativeNumbers.toString());
-		}
-		
+
 		return sum;
 	}
 }

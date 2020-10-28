@@ -49,7 +49,7 @@ public class SpringCalculator {
 		for (Integer numberInt : numbersArray) {
 			if (numberInt < 0) {
 				negativeNumbers.add(numberInt);
-			} else {
+			} else if (numberInt <= 1000) {
 				sum += numberInt;
 			}
 		}

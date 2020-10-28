@@ -74,6 +74,13 @@ public class SpringCalculatorTest {
 			assertEquals("Negatives not allowed: [-6, -18]", e.getMessage());
 		}
 	}
+	
+/*	6) Numbers bigger than 1000 should be ignored, so adding 2 + 1001 = 2*/
+	
+    @Test
+    public final void returnSumOfNumbersAreBiggerThan1000() {
+        assertEquals(1009, SpringCalculator.add("3,1000,1001,6,1234"));
+    }
 }
 
 

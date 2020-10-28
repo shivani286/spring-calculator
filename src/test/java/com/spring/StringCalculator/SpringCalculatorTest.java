@@ -38,4 +38,11 @@ public class SpringCalculatorTest {
 	   assertEquals(3, SpringCalculator.add("1,2"));
 	}
 	
+/*	2. Allow the Add method to handle an unknown amount of numbers*/
+	
+	@Test
+	public final void returnUnknownAmountOfNumbers() {
+	   assertEquals(6, SpringCalculator.add("1,2,3"));
+	}
+	
 }

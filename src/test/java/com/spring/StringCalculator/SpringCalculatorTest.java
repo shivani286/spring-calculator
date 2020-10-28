@@ -53,4 +53,35 @@ public class SpringCalculatorTest {
 		assertEquals(6, SpringCalculator.add("1\n2,3"));
 	}
 	
+/*	4) Support different delimiters
+		1) To change a delimiter, the beginning of the string will contain a separate line that looks like this:
+ 		“//[delimiter]\n[numbers…]” for example “//;\n1;2” should return three where the default delimiter is ‘;’.*/
+
+	@Test
+	public final void returnDifferentDelimiters() {
+		assertEquals(6, SpringCalculator.add("//;\n1;2;3"));
+	}
+	
+/*  5) Calling Add with a negative number will throw an exception 
+    “negatives not allowed” - and the negative that was passed. 
+	 if there are multiple negatives, show all of them in the exception message.*/
+
+	@Test
+	public final void returnNegativeNumbersRuntimeExceptionIsThrown() {
+		try {
+			SpringCalculator.add("3,-6,15,-18,46,33");
+		} catch (RuntimeException e) {
+			assertEquals("Negatives not allowed: [-6, -18]", e.getMessage());
+		}
+	}
 }
+
+
+
+
+
+
+
+
+
+

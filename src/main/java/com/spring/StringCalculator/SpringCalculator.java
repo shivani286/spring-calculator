@@ -44,13 +44,20 @@ public class SpringCalculator {
 
 	private static int sumOfNumber(List<Integer> numbersArray) {
 		int sum = 0;
-
+		List<Integer> negativeNumbers = new ArrayList<Integer>();
+		
 		for (Integer numberInt : numbersArray) {
-
-			sum += numberInt;
-
+			if (numberInt < 0) {
+				negativeNumbers.add(numberInt);
+			} else {
+				sum += numberInt;
+			}
 		}
 
+		if (negativeNumbers.size() > 0) {
+			throw new RuntimeException("Negatives not allowed: " + negativeNumbers.toString());
+		}
+		
 		return sum;
 	}
 }

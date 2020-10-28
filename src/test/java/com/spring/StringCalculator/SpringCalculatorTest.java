@@ -45,4 +45,12 @@ public class SpringCalculatorTest {
 	   assertEquals(6, SpringCalculator.add("1,2,3"));
 	}
 	
+/*	3) Allow the Add method to handle new lines between numbers (instead of commas).
+	     1)the following input is ok: “1\n2,3” (will equal 6)*/
+
+	@Test
+	public final void returnHandleNewLinesBetweenNumbers() {
+		assertEquals(6, SpringCalculator.add("1\n2,3"));
+	}
+	
 }
